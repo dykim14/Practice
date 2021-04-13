@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+who -> A1 : doA1()
+A1 -> A2 : <<create>>
+activate A2
+deactivate A2
+A1 -> A2 : doA2(this)
+activate A2
+A2 -> A1 : doIt()
+deactivate A2
+activate A1
+
+A1 -> A3 : <<create>>
+activate A3
+deactivate A3
+A1 -> A3 : doA3(a2)
+activate A3
+A3 -> A2 : doThat()
+deactivate A3
+activate A2
+deactivate A2
+@enduml

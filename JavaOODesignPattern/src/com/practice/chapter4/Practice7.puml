@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+activate GUI
+GUI -> GridLayout : <<create>> new(1,1)
+GUI -> GUI : setLayout(GridLayout)
+
+GUI -> BorderLayout : <<create>>
+GUI -> p1 : <<create>> new(BorderLayout)
+activate p1
+deactivate p1
+GUI -> p1 : add("West", w)
+activate p1
+deactivate p1
+GUI -> p1 : add("Center", tf)
+activate p1
+deactivate p1
+
+GUI -> FlowLayout : <<create>>
+GUI -> p2 : <<create>> new(FlowLayout)
+activate p2
+deactivate p2
+GUI -> p2 : add(b)
+activate p2
+deactivate p2
+
+GUI -> GUI : add(p2)
+
+@enduml
