@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ConcreteStrategy1 {
++strategyMethod()
+}
+class ConcreteStrategy2 {
++strategyMethod()
+}
+class ConcreteStrategy3 {
++strategyMethod()
+}
+
+interface Strategy {
+-strategy
++strategyMethod()
+}
+note right of Strategy
+    인터페이스나 추상 클래스로 외부에서 동일한
+    방식으로 알고리즘을 호출하는 방법을 명시한다.
+end note
+
+Strategy <|.. ConcreteStrategy1
+Strategy <|.. ConcreteStrategy2
+Strategy <|.. ConcreteStrategy3
+
+class Context {
++ContextMethod()
+}
+
+Context o-- "-strategy" Strategy
+
+note right of Context
+    스트래티지 패턴을 이용하는 역할을 수행한다.
+    필요에 따라 동적으로 구체적인 전략을
+    바꿀 수 있도록 setter 메서드를 제공한다.
+end note
+
+note bottom of ConcreteStrategy2
+    스트래티지 패턴에서 명시한 알고리즘을 실제로 구현한 클래스다.
+end note
+
+@enduml

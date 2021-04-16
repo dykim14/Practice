@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Member {
+-String name
+-int totalRentalFee
+}
+
+class Book {
+-String name
+-int year
+-int price
+}
+
+interface IDiscountPolicy {
++applyDiscount(Book, totalRentalFee)
+}
+
+class OldBookDiscountPolicy {
++applyDiscount(Book, totalRentalFee)
+}
+
+class TotalRentalFeeDiscountPolicy {
++applyDiscount(Book, totalRentalFee)
+}
+
+IDiscountPolicy <|.. OldBookDiscountPolicy
+IDiscountPolicy <|.. TotalRentalFeeDiscountPolicy
+
+class BookStore {
+-List<Book>
+-List<Memeber>
+-List<IDiscountPolicy>
++addBook(Book)
++addMember(Member)
++addDiscountPolicy(IDiscountPolicy)
++buy(List<Book>)
+-applyDiscountPolicy(List<Book>)
++main(String[] args])
+}
+
+BookStore o-- "-discountPolicyList" IDiscountPolicy
+BookStore o-- Member
+BookStore o-- Book
+
+@enduml
