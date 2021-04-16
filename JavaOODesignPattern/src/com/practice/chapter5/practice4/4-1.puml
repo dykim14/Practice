@@ -1,0 +1,87 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Ball {
+-int x, y
+-int xInterval, yInterval
+-DirectionStrategy directionStrategy
+-DrawStrategy drawStrategy
+-Color color
+
++Ball(int x, int y)
++int getX()
++int getY()
++void setX(int x)
++void setY(int y)
++int getXinterval()
++int getYinterval()
++void setIntervals(int xInterval, int yInterval)
++void setColor(Color color)
++Color getColor()
++void setDirectionStrategy(DirectionStrategy directionStrategy)
++void setDrawStrategy(DrawStrategy drawStrategy)
++void draw()
++void move()
++void run()
+}
+
+abstract class DirectionStrategy {
++void move(Ball ball)
+}
+Ball --> DirectionStrategy
+
+class HorizontalMoveStrategy {
++void move(Ball ball)
+}
+DirectionStrategy <|.. HorizontalMoveStrategy
+
+class VerticalMoveStrategy {
++void move(Ball ball)
+}
+DirectionStrategy <|.. VerticalMoveStrategy
+
+class DiagonalMoveStrategy {
++void move(Ball ball)
+}
+DirectionStrategy <|.. DiagonalMoveStrategy
+
+
+abstract class DrawStrategy {
++void draw(Ball ball)
+}
+Ball --> DrawStrategy
+
+class RedDrawStrategy {
++void draw(Ball ball)
+}
+DrawStrategy <|.. RedDrawStrategy
+
+class BlueDrawStrategy {
++void draw(Ball ball)
+}
+DrawStrategy <|.. BlueDrawStrategy
+
+class Client {
++void main(String[] args)
+}
+
+Client --> Ball
+
+class JFrame
+
+class BallFrame {
++Field field
++BallFrame(Ball[] balls)
+}
+JFrame <|-- BallFrame
+Client --> BallFrame
+
+class Field {
+-Ball[] balls
++Field(Balls[] balls)
++void paint(Graphics g)
++void run()
+}
+BallFrame --> Field
+
+@enduml

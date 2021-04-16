@@ -1,4 +1,4 @@
-package com.practice.chapter5;
+package com.practice.chapter5.practice3;
 
 public class Member {
     private String name;
