@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant ":Client" as client
+participant "<<metaclass>> : Singleton" as singleton
+
+client -> singleton : getInstance()
+
+participant "instance : Singleton" as instance
+opt instance == NULL
+singleton -> instance : <<create>>
+end
+
+singleton -> client : instance
+
+@enduml
