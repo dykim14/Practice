@@ -6,10 +6,10 @@ public class Course {
     private Integer numOfStudents = 0;
 
     public void addStudent() {
-
+        numOfStudents++;
     }
 
     public void deleteStudent() {
-
+        numOfStudents--;
     }
 }
